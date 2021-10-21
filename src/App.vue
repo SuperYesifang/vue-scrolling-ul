@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<Main class="list" :bar="barOption" :smooth="false" :infinity="false">
+		<Main class="list">
 			<li>1</li>
 			<li>2</li>
 			<li>3</li>
@@ -20,9 +20,7 @@
 			Main
 		},
 		data() {
-			return {
-				barOption: {}
-			};
+			return {};
 		}
 	};
 </script>

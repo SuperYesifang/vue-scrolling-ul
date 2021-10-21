@@ -44,7 +44,7 @@
 			bar: {
 				type: Object,
 				default: () => ({
-					show: false
+					show: "auto"
 				})
 			},
 			infinity: {
@@ -141,7 +141,7 @@
 						}
 						this.el.scrollTop = this.isReverse ? ++this.scrollTop : --this.scrollTop;
 						this.infinityDisplace();
-					}, this.speed);
+					}, 1000 / this.speed);
 				} else {
 					(async () => {
 						let arr = this[this.isReverse ? "upList" : "downList"];
