@@ -2,7 +2,7 @@
 	<div id="scrolling-ul" @mouseenter="mouseenter" @mousemove="barMove" @mouseleave="mouseleave" @mouseup="barRelease">
 		<div
 			v-if="barShow"
-			:class="['scrolling-nice-bar', { capture: !barFree, barShow }]"
+			:class="['scrolling-bar-base', `scrolling${nice ? '-nice' : ''}-bar`, { capture: !barFree, barShow }]"
 			:style="{
 				display: barH ? 'block' : 'none',
 				top: barTop + 'px',
@@ -11,7 +11,7 @@
 			}"
 			@mousedown="barCapture"
 		></div>
-		<ul :class="['scrolling-nice-ul', { bar: barShow || infinity, infinity, capture: !barFree, bst }]" ref="scrolling-nice-ul" @scroll="scroll">
+		<ul :class="['scrolling-ul-base', `scrolling${nice ? '-nice' : ''}-ul`, { bar: barShow || infinity, infinity, capture: !barFree }]" ref="scrolling-nice-ul" @scroll="scroll">
 			<slot />
 		</ul>
 	</div>
@@ -21,10 +21,6 @@
 	export default {
 		name: "vue-scrolling-ul",
 		props: {
-			bst: {
-				type: Boolean,
-				default: true
-			},
 			smooth: {
 				type: Boolean,
 				default: true
@@ -50,6 +46,10 @@
 			infinity: {
 				type: Boolean,
 				default: true
+			},
+			nice: {
+				type: Boolean,
+				default: false
 			}
 		},
 		data() {
@@ -79,7 +79,7 @@
 						return this.bar.show;
 					case "auto":
 					default:
-						return this.infinity ? this.operation : this.bst;
+						return this.operation;
 				}
 			}
 		},
@@ -239,7 +239,7 @@
 <style lang="scss" scoped>
 	#scrolling-ul {
 		position: relative;
-		.scrolling-nice-bar {
+		.scrolling-bar-base {
 			display: none;
 			position: absolute;
 			z-index: 10;
@@ -247,25 +247,27 @@
 			right: 4px;
 			width: 10px;
 			height: 100px;
-			border-radius: 10px;
 			cursor: pointer;
-			background: rgba(168, 168, 168, 0.5);
-			transform: scale(1);
-			// transition: background, transform 0.2s, opacity 0.2s;
-			opacity: 0;
-			&.capture,
-			&:hover {
-				transform: scale(1.3, 1);
-				background: rgba(158, 158, 158, 0.8);
-			}
 			&.barShow {
 				display: block;
-				opacity: 1;
-				transition: background 0.2s, transform 0.2s, opacity 0.5s;
-				// transition-delay: 0.5s;
+			}
+			&.scrolling-bar {
+				border-radius: 10px;
+				background: rgba(168, 168, 168, 0.5);
+				opacity: 0;
+				transform: scale(1);
+				&.capture,
+				&:hover {
+					transform: scale(1.3, 1);
+					background: rgba(158, 158, 158, 0.8);
+				}
+				&.barShow {
+					opacity: 1;
+					transition: background 0.2s, transform 0.2s, opacity 0.5s;
+				}
 			}
 		}
-		.scrolling-nice-ul {
+		.scrolling-ul-base {
 			height: 100%;
 			overflow-y: auto;
 			& > li {
@@ -283,16 +285,18 @@
 			&.capture {
 				user-select: none;
 			}
-			&:not(.bar).bst {
-				&::-webkit-scrollbar {
-					width: 16px;
-				}
-				&::-webkit-scrollbar-thumb {
-					box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-					background: rgba(190, 190, 190, 0.8);
-				}
-				&::-webkit-scrollbar-track {
-					background: rgba(168, 168, 168, 0.3);
+			&.scrolling-ul {
+				&:not(.bar) {
+					&::-webkit-scrollbar {
+						width: 16px;
+					}
+					&::-webkit-scrollbar-thumb {
+						box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+						background: rgba(190, 190, 190, 0.8);
+					}
+					&::-webkit-scrollbar-track {
+						background: rgba(168, 168, 168, 0.3);
+					}
 				}
 			}
 		}
