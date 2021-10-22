@@ -1,16 +1,21 @@
 {
   "name": "vue-scrolling-ul",
   "description": "这是一个Vue组件，提供一个自动滚动的ul列表。This is a Vue component that provides a list of ul that scrolls automatically.",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "author": "Yesifang",
   "license": "MIT",
   "private": false,
   "main": "./dist/vue-scrolling-ul.js",
   "keywords": [
     "vue",
+    "vue2",
     "scroll",
     "ul",
-    "auto"
+    "auto",
+    "auto scroll",
+    "scroll ul",
+    "scroll list",
+    "auto scrolling list"
   ],
   "repository": {
     "type": "git",
