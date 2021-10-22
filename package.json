@@ -8,9 +8,14 @@
   "main": "./dist/vue-scrolling-ul.js",
   "keywords": [
     "vue",
+    "vue2",
     "scroll",
     "ul",
-    "auto"
+    "auto",
+    "auto scroll",
+    "scroll ul",
+    "scroll list",
+    "auto scrolling list"
   ],
   "repository": {
     "type": "git",
