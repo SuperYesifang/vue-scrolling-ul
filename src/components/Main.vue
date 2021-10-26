@@ -1,5 +1,5 @@
 <template>
-	<div id="scrolling-ul" @mouseenter="mouseenter" @mousemove="barMove" @mouseleave="mouseleave" @mouseup="barRelease">
+	<div id="vue-scrolling-ul" @mouseenter="mouseenter" @mousemove="barMove" @mouseleave="mouseleave" @mouseup="barRelease">
 		<div
 			v-if="barShow"
 			:class="['scrolling-bar-base', `scrolling${nice ? '-nice' : ''}-bar`, { capture: !barFree, barShow }]"
@@ -237,7 +237,7 @@
 </script>
 
 <style lang="scss" scoped>
-	#scrolling-ul {
+	#vue-scrolling-ul {
 		position: relative;
 		.scrolling-bar-base {
 			display: none;
