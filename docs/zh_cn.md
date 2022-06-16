@@ -13,9 +13,9 @@
   <a href="https://nodei.co/npm/vue-scrolling-ul/"><img src="https://nodei.co/npm/vue-scrolling-ul.png?downloads=true&downloadRank=true&stars=true"></a>
 </div>
 
-## Run Simple Demo
+## 运行简单示例
 
-![demo](./src/assets/demo.gif)
+![demo](../src/assets/demo.gif)
 
 ```shell
 $ git clone https://github.com/SuperYesifang/vue-scrolling-ul.git
@@ -24,9 +24,9 @@ $ npm install
 $ npm run dev
 ```
 
-## Usage
+## 使用
 
-### 1. Global Use in Vue-Cli Project
+### 1. 全局使用
 
 -   main.js
 
@@ -47,20 +47,20 @@ new Vue({
 ```vue
 <template>
   <div id="app">
-    <vue-scrolling-ul>Some LI Tags ...</vue-scrolling-ul>
+    <vue-scrolling-ul>一些LI标签 ...</vue-scrolling-ul>
   </div>
 </template>
-omit...
+略...
 ```
 
-### 2. Direct Use in Vue-Cli Project
+### 2. 直接使用
 
 -   App.vue
 
 ```vue
 <template>
   <div id="app">
-    <scrolling-ul>Some LI Tags ...</scrolling-ul>
+    <scrolling-ul>一些LI标签 ...</scrolling-ul>
   </div>
 </template>
 
@@ -72,41 +72,41 @@ omit...
     components: {
       ScrollingUl
     }
-    omit...
+    略...
   };
 </script>
 ```
 
-## Options
+## 选项
 
-Some Vue prop options to config vue-scrolling-ul.
+vue-scrolling-ul组件接受以下 Vue prop 配置项。
 
-| prop     | description                                                                                                | type         | default         |
+| prop     | 含义                                                                                                | 类型         | 默认值         |
 | -------- | ---------------------------------------------------------------------------------------------------------- | ------------ | --------------- |
-| start    | Turn on auto scrolling.                                                                                    | Boolean      | `true`          |
-| smmoth   | Turn on smooth scrolling.                                                                                  | Boolean      | `true`          |
-| infinity | Turn on infinite scrolling.                                                                                | Boolean      | `true`          |
-| bar      | Configure virtual scroll bar.                                                                              | `barOptions` | `{show:'auto'}` |
-| speed    | Scrolling speed. (unit: `pixel/s`, remark: Must be a positive number)                                     | Number       | `30`            |
-| delay    | Scrolling gap time. (unit: `ms`, remark: Only when `smooth` prop equals `false`,Must be a positive number) | Number       | `3000`          |
-| nice     | Turn on customizes the CSS style and cancels the default style.                                            | Boolean      | `false`         |
+| start    | 启用滚动。                                                                                    | Boolean      | `true`          |
+| smmoth   | 启用平滑滚动。                                                                                  | Boolean      | `true`          |
+| infinity | 启用无限滚动。                                                                                | Boolean      | `true`          |
+| bar      | 虚拟滚动条的配置。                                                                              | `barOptions` | `{show:'auto'}` |
+| speed    | 滚动的速度。(单位: `像素/秒`, 备注: 必须是一个正数)                                     | Number       | `30`            |
+| delay    | 滚动的间隙时间。 (单位: `毫秒`, 备注: 只有 `smooth` prop 为 `false` 时有效，必须是一个正数) | Number       | `3000`          |
+| nice     | 启用自定义css样式以覆盖默认样式。                                            | Boolean      | `false`         |
 
-### barOptions
+### bar选项
 
 Type: Object
 
-| property | description                             | type                | default  |
+| 属性 | 含义                             | 类型                | 默认值  |
 | -------- | --------------------------------------- | ------------------- | -------- |
-| show     | Turn on virtual scroll bar.             | Boolean \| `"auto"` | `"auto"` |
-| style    | Custom CSS style of virtual scroll bar. | Object              | omit...  |
+| show     | 显示虚拟滚动条。             | Boolean 、`"auto"` | `"auto"` |
+| style    | 虚拟滚动条的自定义css样式。 | Object              | 略...  |
 
-## More Custom Style
+## 更多自定义样式
 
-If you want to customize more styles using CSS.You can use the following className. (Only when `nice` prop equals `true`)
+如果您想使用CSS自定义更多样式。您可以使用以下类名。(只有当 `nice` prop 为 `true` 时有效)
 
-| className                    | description                                        |
+| 类名                    | 含义                                        |
 | ---------------------------- | -------------------------------------------------- |
-| `scrolling-nice-bar`         | the visual bar when normal.                        |
-| `scrolling-nice-bar.barShow` | then visual bar when show.                         |
-| `scrolling-nice-ul`          | the scrolling ul list when normal.                 |
-| `scrolling-nice-ul.bar`      | then scrolling ul list when visual bar is enabled. |
+| `scrolling-nice-bar`         | 虚拟滚动条的基础类名。                        |
+| `scrolling-nice-bar.barShow` | 虚拟滚动条现实时的类名。                         |
+| `scrolling-nice-ul`          | 滚动列表的基础类名。                 |
+| `scrolling-nice-ul.bar`      | 滚动列表启用虚拟滚动条时的类名。 |
